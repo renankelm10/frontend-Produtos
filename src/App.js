@@ -149,12 +149,12 @@ export default function Cadastro() {
   {dados && Array.isArray(dados) && dados.length > 0 ? (
     dados.map((linha, index) => (
       <tr key={index} className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-        <td>{ linha.email}</td>
-        <td>{ linha.placadocarro}</td>
-        <td>{ linha.modelo}</td>
-        <td>{ linha.categoria}</td>
-        <td>{ linha.detalhes}</td>
-        <button onClick={(e) => {
+        <td  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">{ linha.email}</td>
+        <td  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">{ linha.placadocarro}</td>
+        <td  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">{ linha.modelo}</td>
+        <td  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">{ linha.categoria}</td>
+        <td  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">{ linha.detalhes}</td>
+        <button  className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
   e.preventDefault(); 
   excluir(linha.id);  
 }}>Excluir</button>
