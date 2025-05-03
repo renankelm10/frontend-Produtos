@@ -30,7 +30,7 @@ export default function Cadastro() {
   const excluir = async (id) => {
     try {
       await axios.delete(`https://impotador-produtos-o8on.onrender.com/excluir/${id}`);
-      buscarDados(); // Atualiza a tabela após excluir
+      buscarDados(); 
     } catch (error) {
       console.error('Erro ao excluir dado:', error);
     }
@@ -110,7 +110,10 @@ export default function Cadastro() {
           />
           <button
             type="submit"
-            onClick={handleSubmit()}
+            onClick={(e) => {
+              e.preventDefault(); 
+              handleSubmit  
+            }}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
             Enviar Cadastro
@@ -152,8 +155,8 @@ export default function Cadastro() {
         <td>{ linha.categoria}</td>
         <td>{ linha.detalhes}</td>
         <button onClick={(e) => {
-  e.preventDefault(); // evita o submit
-  excluir(linha.id);  // executa a exclusão
+  e.preventDefault(); 
+  excluir(linha.id);  
 }}>Excluir</button>
 
       </tr>
