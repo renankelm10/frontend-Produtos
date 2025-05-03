@@ -126,7 +126,7 @@ export default function Cadastro() {
       <div className="tabela" style={{ 
                 marginTop:"-610px", 
                 textAlign: "left",
-                marginLeft:"800px", 
+                marginLeft:"720px", 
                 maxWidth: "1000px",
                 maxHeight: "500px",
                 overflowY: "auto",
@@ -148,7 +148,7 @@ export default function Cadastro() {
           <tbody>
   {dados && Array.isArray(dados) && dados.length > 0 ? (
     dados.map((linha, index) => (
-      <tr key={index} className="rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+      <tr key={index} className="rounded-x1 mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
         <td  className="">{ linha.email}</td>
         <td  className="">{ linha.placadocarro}</td>
         <td  className="">{ linha.modelo}</td>
