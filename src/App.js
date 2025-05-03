@@ -15,7 +15,7 @@ export default function Cadastro() {
 
   const buscarDados = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/dados');
+      const response = await axios.get('https://impotador-produtos-o8on.onrender.com/dados');
       setDados(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -29,7 +29,7 @@ export default function Cadastro() {
 
   const excluir = async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/excluir/${id}`);
+      await axios.delete(`https://impotador-produtos-o8on.onrender.com/excluir/${id}`);
       buscarDados(); // Atualiza a tabela após excluir
     } catch (error) {
       console.error('Erro ao excluir dado:', error);
@@ -39,7 +39,7 @@ export default function Cadastro() {
   const handleSubmit = () => {
 
     axios 
-    .get("http://localhost:5001/lista", {params: { email, placadocarro, modelo, categoria, detalhes,imagem},
+    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: { email, placadocarro, modelo, categoria, detalhes,imagem},
    })
    .then((response) => { 
     
@@ -110,7 +110,7 @@ export default function Cadastro() {
           />
           <button
             type="submit"
-            onClick={handleSubmit}
+            onClick={handleSubmit()}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
             Enviar Cadastro
