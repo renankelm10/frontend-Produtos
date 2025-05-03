@@ -148,13 +148,13 @@ export default function Cadastro() {
           <tbody>
   {dados && Array.isArray(dados) && dados.length > 0 ? (
     dados.map((linha, index) => (
-      <tr key={index} className="rounded-x1 mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+      <tr key={index} className="rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
         <td  className="">{ linha.email}</td>
         <td  className="">{ linha.placadocarro}</td>
         <td  className="">{ linha.modelo}</td>
         <td  className="">{ linha.categoria}</td>
         <td  className="">{ linha.detalhes}</td>
-        <button  className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
+        <button  className=" bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
   e.preventDefault(); 
   excluir(linha.id);  
 }}>Excluir</button>
