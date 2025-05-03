@@ -1,25 +1,175 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
 
-function App() {
+
+export default function Cadastro() {
+  const [email, setEmail] = useState('');
+  const [placadocarro, setPlaca] = useState('');
+  const [modelo, setModelo] = useState('');
+  const [categoria, setCategoria] = useState('');
+  const [detalhes, setDetalhes] = useState('');
+  const [imagem, setImagem] = useState(null);
+  const [dados, setDados] = useState([]);
+  const [id, setIdSelecionado] = useState('');
+
+  const buscarDados = async () => {
+    try {
+      const response = await axios.get('http://localhost:5001/dados');
+      setDados(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  };
+
+  useEffect(() => {
+    buscarDados();
+  }, []);
+
+
+  const excluir = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5001/excluir/${id}`);
+      buscarDados(); // Atualiza a tabela após excluir
+    } catch (error) {
+      console.error('Erro ao excluir dado:', error);
+    }
+  };
+
+  const handleSubmit = () => {
+
+    axios 
+    .get("http://localhost:5001/lista", {params: { email, placadocarro, modelo, categoria, detalhes,imagem},
+   })
+   .then((response) => { 
+    
+    setEmail('');
+    setCategoria("");
+    setModelo('');
+    setPlaca("");
+    setDetalhes("");
+    
+    console.log(response)
+    buscarDados()
+   })
+    
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="BackgroundLogin">
+      <div className="flex flex-col" style={{marginLeft:"-980px"}}>
+        <h1>Cadastro de Produtos</h1>
+        <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Marca"
+            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
+            style={{ marginTop:"40px"}}
+          />
+          <input
+            type="text"
+            value={placadocarro}
+            onChange={(e) => setPlaca(e.target.value)}
+            placeholder="Placa do Carro"
+            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
+            
+          />
+          <input
+            type="text"
+            value={modelo}
+            onChange={(e) => setModelo(e.target.value)}
+            placeholder="Modelo"
+            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
+            
+          />
+          <input
+            type="text"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+            placeholder="Categoria"
+            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-monod"
+           
+          />
+          <textarea
+            type="text"
+            value={detalhes}
+            onChange={(e) => setDetalhes(e.target.value)}
+            placeholder="Detalhes"
+            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
+            
+          /><label for="file-upload" class="custom-file-upload" className="border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">Escolher Imagem</label>
+          <input
+            type="file"
+            onChange={(e) => setImagem(e.target.files[0])}
+            className="custom-file-upload"
+            id="file-upload"
+            accept="image/*"
+          />
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          >
+            Enviar Cadastro
+          </button>
+        </form>
+        </div>
+      </div>
+
+      
+      <div className="tabela" style={{ 
+                marginTop:"-610px", 
+                textAlign: "left",
+                marginLeft:"800px", 
+                maxWidth: "920px",
+                maxHeight: "500px",
+                overflowY: "auto",
+                
+                 }}>
+        
+        <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
+          <thead>
+            <tr>
+              <th style={{textAlign:"left"}}>Imagem</th>
+              <th style={{textAlign:"left"}}>Email</th>
+              <th style={{textAlign:"left"}}>Placa</th>
+              <th style={{textAlign:"left"}}>Modelo</th>
+              <th style={{textAlign:"left"}}>Categoria</th>
+              <th style={{textAlign:"left"}}>Detalhes</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+  {dados && Array.isArray(dados) && dados.length > 0 ? (
+    dados.map((linha, index) => (
+      <tr key={index}>
+        <td>{ linha.email}</td>
+        <td>{ linha.placadocarro}</td>
+        <td>{ linha.modelo}</td>
+        <td>{ linha.categoria}</td>
+        <td>{ linha.detalhes}</td>
+        <button onClick={(e) => {
+  e.preventDefault(); // evita o submit
+  excluir(linha.id);  // executa a exclusão
+}}>Excluir</button>
+
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="6" style={{ textAlign: "center" }}>
+        Nenhum dado encontrado.
+      </td>
+    </tr>
+  )}
+</tbody>
+
+
+        </table>
+      </div>
     </div>
   );
 }
-
-export default App;
