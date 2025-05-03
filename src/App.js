@@ -136,7 +136,6 @@ export default function Cadastro() {
         <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
           <thead>
             <tr>
-              <th style={{textAlign:"left"}}>Imagem</th>
               <th style={{textAlign:"left"}}>Email</th>
               <th style={{textAlign:"left"}}>Placa</th>
               <th style={{textAlign:"left"}}>Modelo</th>
