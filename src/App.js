@@ -112,7 +112,7 @@ export default function Cadastro() {
             type="submit"
             onClick={(e) => {
               e.preventDefault(); 
-              handleSubmit  
+              handleSubmit(); 
             }}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
