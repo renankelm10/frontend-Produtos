@@ -128,7 +128,7 @@ export default function Cadastro() {
                 textAlign: "left",
                 marginLeft:"800px", 
                 maxWidth: "920px",
-                maxHeight: "500px",
+                maxHeight: "600Spx",
                 overflowY: "auto",
                 
                  }}>
