@@ -148,7 +148,7 @@ export default function Cadastro() {
           <tbody>
   {dados && Array.isArray(dados) && dados.length > 0 ? (
     dados.map((linha, index) => (
-      <tr key={index}>
+      <tr key={index} className="py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
         <td>{ linha.email}</td>
         <td>{ linha.placadocarro}</td>
         <td>{ linha.modelo}</td>
