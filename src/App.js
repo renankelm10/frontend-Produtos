@@ -153,7 +153,7 @@ export default function Cadastro() {
         <td  className="">{ linha.modelo}</td>
         <td  className="">{ linha.categoria}</td>
         <td  className="">{ linha.detalhes}</td>
-       <td> <button style={{marginTop: "-6px"}}  className=" bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
+       <td> <button style={{marginTop: "-6px"}}  className="py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
   e.preventDefault(); 
   excluir(linha.id);  
 }}>Excluir</button></td>
