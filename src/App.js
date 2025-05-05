@@ -124,7 +124,7 @@ export default function Cadastro() {
 
       
       <div className="tabela" style={{ 
-                marginTop:"40px", 
+                marginTop:"-400px", 
                 textAlign: "left",
                 marginLeft:"720px", 
                 maxWidth: "1000px",
