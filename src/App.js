@@ -172,6 +172,57 @@ export default function Cadastro() {
 
         </table>
       </div>
+
+
+      <div className="tabela" style={{ 
+                marginTop:"-610px", 
+                textAlign: "left",
+                marginLeft:"720px", 
+                maxWidth: "1000px",
+                maxHeight: "500px",
+                overflowY: "auto",
+                
+                 }}>
+        
+        <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
+          <thead>
+            <tr>
+              <th style={{textAlign:"left"}}>Marca</th>
+              <th style={{textAlign:"left"}}>Placa</th>
+              <th style={{textAlign:"left"}}>Modelo</th>
+              <th style={{textAlign:"left"}}>Categoria</th>
+              <th style={{textAlign:"left"}}>Detalhes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+  {dados && Array.isArray(dados) && dados.length > 0 ? (
+    dados.map((linha, index) => (
+      <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+        <td  className="">{ linha.email}</td>
+        <td  className="">{ linha.placadocarro}</td>
+        <td  className="">{ linha.modelo}</td>
+        <td  className="">{ linha.categoria}</td>
+        <td  className="">{ linha.detalhes}</td>
+       <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
+  e.preventDefault(); 
+  excluir(linha.id);  
+}}>Excluir</button></td>
+
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="6" style={{ textAlign: "center" }}>
+        Nenhum dado encontrado.
+      </td>
+    </tr>
+  )}
+</tbody>
+
+
+        </table>
+      </div>
     </div>
   );
 }
