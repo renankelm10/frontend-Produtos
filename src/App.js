@@ -124,11 +124,11 @@ export default function Cadastro() {
 
       
       <div className="tabela" style={{ 
-                marginTop:"-300px", 
+                marginTop:"-700px", 
                 textAlign: "left",
                 marginLeft:"720px", 
                 maxWidth: "1000px",
-                maxHeight: "500px",
+                maxHeight: "300px",
                 overflowY: "auto",
                 
                  }}>
@@ -172,11 +172,11 @@ export default function Cadastro() {
       </div>
 
       <div className="tabela" style={{ 
-                marginTop:"-610px", 
+                marginTop:"50px", 
                 textAlign: "left",
                 marginLeft:"720px", 
                 maxWidth: "1000px",
-                maxHeight: "500px",
+                maxHeight: "300px",
                 overflowY: "auto",
                 
                  }}>
