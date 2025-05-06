@@ -72,21 +72,21 @@ export default function Cadastro() {
     <div className="App">
       <div className="BackgroundLogin">
       <div className="flex flex-col" style={{marginLeft:""}}>
-        <h1>Cadastro de Produtos</h1>
+        <h1>Login</h1>
         <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Marca"
+            placeholder="Email"
             className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
             style={{ marginTop:"40px"}}
           />
           <input
             type="text"
             value={senha}
-            onChange={(e) => setPlaca(e.target.value)}
-            placeholder="Placa do Carro"
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="senha"
             className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
             
           />
@@ -99,7 +99,7 @@ export default function Cadastro() {
             }}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
-            Enviar Cadastro
+            Fazer Login
           </button>
         </form>
         </div>
