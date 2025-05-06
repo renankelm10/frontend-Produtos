@@ -70,7 +70,7 @@ export default function Cadastro() {
 
   return (
     <div className="App">
-      <img src="./papel.png" alt="" style={{height:"800px" , width:"900px", marginTop:"4%", marginLeft:"100px"}}/>
+      <img src="./papel.png" alt="" style={{height:"800px" , width:"850px", marginTop:"4%", marginLeft:"100px"}}/>
       <div className="BackgroundLogin" style={{marginTop:"-800px"}}>
       <div className="flex flex-col" style={{marginLeft:""}}>
         <h1>Login</h1>
