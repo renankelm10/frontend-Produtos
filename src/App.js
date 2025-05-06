@@ -5,6 +5,8 @@ import "./App.css";
 
 export default function Cadastro() {
   const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState("")
+  const [marca, setMarca] = useState("")
   const [placadocarro, setPlaca] = useState('');
   const [modelo, setModelo] = useState('');
   const [categoria, setCategoria] = useState('');
@@ -12,6 +14,16 @@ export default function Cadastro() {
   const [imagem, setImagem] = useState(null);
   const [dados, setDados] = useState([]);
   const [id, setIdSelecionado] = useState('');
+
+
+  const login = async ( ) => { 
+    axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
+    .then( (response) => { 
+        setEmail("");
+        setSenha("");
+    })
+  }
+
 
   const buscarDados = async () => {
     try {
@@ -39,7 +51,7 @@ export default function Cadastro() {
   const handleSubmit = () => {
 
     axios 
-    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: { email, placadocarro, modelo, categoria, detalhes,imagem},
+    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: { marca, placadocaro, modelo, categoria, detalhes,imagem},
    })
    .then((response) => { 
     
@@ -71,43 +83,13 @@ export default function Cadastro() {
           />
           <input
             type="text"
-            value={placadocarro}
+            value={senha}
             onChange={(e) => setPlaca(e.target.value)}
             placeholder="Placa do Carro"
             className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
             
           />
-          <input
-            type="text"
-            value={modelo}
-            onChange={(e) => setModelo(e.target.value)}
-            placeholder="Modelo"
-            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
-            
-          />
-          <input
-            type="text"
-            value={categoria}
-            onChange={(e) => setCategoria(e.target.value)}
-            placeholder="Categoria"
-            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-monod"
-           
-          />
-          <textarea
-            type="text"
-            value={detalhes}
-            onChange={(e) => setDetalhes(e.target.value)}
-            placeholder="Detalhes"
-            className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-mono"
-            
-          /><label for="file-upload" class="custom-file-upload" className="border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">Escolher Imagem</label>
-          <input
-            type="file"
-            onChange={(e) => setImagem(e.target.files[0])}
-            className="custom-file-upload"
-            id="file-upload"
-            accept="image/*"
-          />
+          
           <button
             type="submit"
             onClick={(e) => {
