@@ -3,7 +3,6 @@ import axios from "axios";
 import "./App.css";
 import  foto from "../public/papel.png"
 
-
 export default function Cadastro() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState("")
