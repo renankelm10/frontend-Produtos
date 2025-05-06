@@ -58,7 +58,7 @@ export default function Cadastro() {
   return (
     <div className="App">
       <div className="BackgroundLogin">
-      <div className="flex flex-col" style={{marginLeft:"-980px"}}>
+      <div className="flex flex-col" style={{marginLeft:"-300px"}}>
         <h1>Cadastro de Produtos</h1>
         <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
           <input
@@ -133,7 +133,12 @@ export default function Cadastro() {
                 
                  }}>
         
-        <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
+        
+      </div>
+    </div>
+  );
+}
+{/* <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
           <thead>
             <tr>
               <th style={{textAlign:"left"}}>Marca</th>
@@ -148,10 +153,10 @@ export default function Cadastro() {
   {dados && Array.isArray(dados) && dados.length > 0 ? (
     dados.map((linha, index) => (
       <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-        <td  className="">{ linha.email}</td>
-        <td  className="">{ linha.placadocarro}</td>
-        <td  className="">{ linha.modelo}</td>
-        <td  className="">{ linha.categoria}</td>
+        <td style={{display: "none"}} className="">{ linha.email}</td>
+        <td style={{display: "none"}} className="">{ linha.placadocarro}</td>
+        <td style={{display: "none"}} className="">{ linha.modelo}</td>
+        <td style={{display: "none"}} className="">{ linha.categoria}</td>
         <td  className="">{ linha.detalhes}</td>
        <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
   e.preventDefault(); 
@@ -178,7 +183,6 @@ export default function Cadastro() {
                 maxWidth: "1000px",
                 maxHeight: "300px",
                 overflowY: "auto",
-                
                  }}>
         
         <table className="tabela" cellPadding="1" style={{ margin: 'auto', minWidth:"900px" }}>
@@ -219,8 +223,4 @@ export default function Cadastro() {
 </tbody>
 
 
-        </table>
-      </div>
-    </div>
-  );
-}
+        </table> */}
