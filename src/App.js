@@ -21,7 +21,7 @@ export default function Cadastro() {
     .then( (response) => { 
         setEmail("");
         setSenha("");
-        
+
     })
   }
 
@@ -52,7 +52,7 @@ export default function Cadastro() {
   const handleSubmit = () => {
 
     axios 
-    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: { marca, placadocaro, modelo, categoria, detalhes,imagem},
+    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: {},
    })
    .then((response) => { 
     
