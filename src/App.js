@@ -71,7 +71,7 @@ export default function Cadastro() {
   return (
     <div className="App">
       <div className="BackgroundLogin">
-        <img src="./papel.png" alt="" />
+        <img src="./papel.png" alt="" style={{height:"200px" , width:"200px"}}/>
       <div className="flex flex-col" style={{marginLeft:""}}>
         <h1>Login</h1>
         <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
