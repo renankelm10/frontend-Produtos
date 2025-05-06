@@ -58,7 +58,7 @@ export default function Cadastro() {
   return (
     <div className="App">
       <div className="BackgroundLogin">
-      <div className="flex flex-col" style={{marginLeft:"-300px"}}>
+      <div className="flex flex-col" style={{marginLeft:"200px"}}>
         <h1>Cadastro de Produtos</h1>
         <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
           <input
