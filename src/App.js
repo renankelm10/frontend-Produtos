@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import  foto from "../public/papel.png"
 
 
 export default function Cadastro() {
@@ -71,6 +72,7 @@ export default function Cadastro() {
   return (
     <div className="App">
       <div className="BackgroundLogin">
+        <img src="../public/papel.png" alt="" />
       <div className="flex flex-col" style={{marginLeft:""}}>
         <h1>Login</h1>
         <form onSubmit={handleSubmit} enctype="multipart/form-data" className="flex flex-col items-center">
