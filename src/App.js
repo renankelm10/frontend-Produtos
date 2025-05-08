@@ -18,10 +18,11 @@ export default function Cadastro() {
 
   const login = async ( ) => { 
     axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
+
     .then( (response) => { 
         setEmail("");
         setSenha("");
-
+        console.log(response)
     })
   }
 
@@ -84,7 +85,7 @@ export default function Cadastro() {
             style={{ marginTop:"40px"}}
           />
           <input
-            type="text"
+            type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="senha"
@@ -96,7 +97,7 @@ export default function Cadastro() {
             type="submit"
             onClick={(e) => {
               e.preventDefault(); 
-              handleSubmit(); 
+              login(); 
             }}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
