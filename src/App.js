@@ -17,7 +17,7 @@ export default function Cadastro() {
 
 
   const login = () => { 
-    axios .post("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
+    axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
 
     .then( (response) => { 
         setEmail("");
