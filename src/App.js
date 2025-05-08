@@ -22,7 +22,7 @@ export default function Cadastro() {
     axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
 
     .then( (response) => { 
-        window.location.href("./telaprincipal.js")
+        window.location.href = "./telaprincipal.js";
         setEmail("");
         setSenha("");
         console.log(response)
