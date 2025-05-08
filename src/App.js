@@ -16,8 +16,8 @@ export default function Cadastro() {
   const [id, setIdSelecionado] = useState('');
 
 
-  const login = async ( ) => { 
-    axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
+  const login = () => { 
+    axios .post("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
 
     .then( (response) => { 
         setEmail("");
