@@ -96,7 +96,7 @@ export default function Cadastro() {
 
   return (
     <div className="App">
-      <img src="https://a-static.mlcdn.com.br/1500x1500/tinta-fosca-pva-azul-celeste-100ml-503-cor-unica-tamanho-100ml-acrilex/lojamormaco/789115302317/cce960652e306273a42822a9c6d4dde4.jpeg" alt="" style={{height:"800px" , width:"860px", marginTop:"4%", marginLeft:"100px", borderRadius: "10px"}}/>
+      <img src="https://vocenaneve.com.br/wp-content/uploads/2021/03/montanhistas-mont-blanc.jpg" alt="" style={{height:"800px" , width:"860px", marginTop:"4%", marginLeft:"100px", borderRadius: "10px"}}/>
       <div className="BackgroundLogin" style={{marginTop:"-800px"}}>
       <div className="flex flex-col" style={{marginLeft:""}}>
         <h1>Login</h1>
