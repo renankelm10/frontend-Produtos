@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import Modal, { contextType } from "react-modal";
 
 
 export default function Cadastro() {
@@ -14,6 +15,7 @@ export default function Cadastro() {
   const [imagem, setImagem] = useState(null);
   const [dados, setDados] = useState([]);
   const [id, setIdSelecionado] = useState('');
+  const [modalestaaberto1, setModalAberto1] = React.useState(false);
 
 
   
@@ -22,7 +24,7 @@ export default function Cadastro() {
     axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
 
     .then( (response) => { 
-        window.location.href = "./telaprincipal.js";
+        setModalAberto1(true);
         setEmail("");
         setSenha("");
         console.log(response)
@@ -69,7 +71,13 @@ export default function Cadastro() {
     console.log(response)
     buscarDados()
    })
-    
+  }
+
+  function abrirModal() {
+    setModalAberto1(true);
+  }
+  function fecharModal() {
+    setModalAberto1(false);  
   };
 
   return (
@@ -123,6 +131,35 @@ export default function Cadastro() {
         
         
       </div>
+
+      <Modal
+          isOpen={modalestaaberto1}
+          onRequestClose={fecharModal}
+          contentLabel="Modal de exemplo"
+          className="modal-content"
+          overlayClassName="modal-overlay"
+          style={{
+            overlay: {
+              backgroundColor: "rgba(45, 45, 45, 0.8)",
+            },
+            content: {
+              background: "white",
+              borderRadius: "20px",
+              height: "500px",
+              width: "1000px",
+              position: "absolute",
+              marginLeft: "400px",
+              marginTop: "160px",
+            },
+          }}
+        >
+
+
+
+
+
+        </Modal>
+        
     </div>
   );
 }

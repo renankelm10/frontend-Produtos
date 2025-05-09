@@ -76,3 +76,72 @@ input[type="file"] {
   display: none;
 }
 
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: 1px solid green;
+  background-color: #2f017f;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.modal-overlay {
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(154, 62, 62, 0.8);
+}
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal-content {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Content--after-open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.ReactModal__Content--before-close {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.close {
+  color: red;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+#modalclose { 
+ justify-items: left;
+  color:#61dafb;
+}
+
