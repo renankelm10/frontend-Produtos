@@ -114,7 +114,7 @@ export default function Cadastro() {
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
-            placeholder="senha"
+            placeholder="Senha"
             className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin"
             
           />
