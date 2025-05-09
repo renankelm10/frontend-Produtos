@@ -96,7 +96,7 @@ export default function Cadastro() {
 
   return (
     <div className="App">
-      <img src="https://vocenaneve.com.br/wp-content/uploads/2021/03/montanhistas-mont-blanc.jpg" alt="" style={{height:"800px" , width:"860px", marginTop:"4%", marginLeft:"100px", borderRadius: "10px"}}/>
+      <img src="https://images.unsplash.com/photo-1512273222628-4daea6e55abb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9udGFuaGFzJTIwZGUlMjBuZXZlfGVufDB8fDB8fHww" alt="" style={{height:"800px" , width:"860px", marginTop:"4%", marginLeft:"100px", borderRadius: "10px"}}/>
       <div className="BackgroundLogin" style={{marginTop:"-800px"}}>
       <div className="flex flex-col" style={{marginLeft:""}}>
         <h1>Login</h1>
@@ -162,17 +162,17 @@ export default function Cadastro() {
             content: {
               background: "white",
               borderRadius: "15px",
-              height: "800px",
+              height: "780px",
               width: "860px",
               position: "absolute",
               marginLeft: "960px",
-              marginTop: "-100px",
+              marginTop: "100px",
             },
           }}
         >
           <div
               class="basis1 transition delay-50 duration-200 ease-in-out hover:-translate-y-1 hover:scale-110"
-              id="botaodefechar" style={{marginTop:"10px" , marginLeft:"790px", fontSize:"25px", cursor: "pointer", color:"blue"}}
+              id="botaodefechar" style={{marginTop:"-10px" , marginLeft:"790px", fontSize:"25px", cursor: "pointer", color:"blue"}}
             >
               <span onClick={fecharModal2}>X</span>
             </div>

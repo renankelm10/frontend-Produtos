@@ -4,10 +4,21 @@
 @tailwind utilities;
 
 .App {
-  text-align: center;
+  position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
 }
-body{ 
-  background-color: rgb(30, 30, 85) ;
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://images.unsplash.com/photo-1512273222628-4daea6e55abb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9udGFuaGFzJTIwZGUlMjBuZXZlfGVufDB8fDB8fHww");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 .BackgroundLogin{ 
   background-color: white;
