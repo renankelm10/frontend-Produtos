@@ -235,12 +235,109 @@ export default function Cadastro() {
           }}
         >
 
-        
+<div
+              style={{
+                maxWidth: "40vw",
+                minWidth: "30vw",
+                maxHeight: "500px",
+                minHeight:"499px",
+                overflowY: "auto",
+                border: "",
+                marginLeft: "1200px",
+                marginTop:"22%"
+              }}
+            >
+          <table className="tabela" cellPadding="1" style={{ margin: '', maxWidth:"", marginTop:"", marginLeft:"100px" }}>
+          <thead>
+            <tr>
+              <th style={{textAlign:"left"}}>Pedidos</th>  
+              <th style={{textAlign:"left"}}>Marca</th>
+              <th style={{textAlign:"left"}}>Placa</th>
+              <th style={{textAlign:"left"}}>Modelo</th>
+              <th style={{textAlign:"left"}}>Categoria</th>
+              <th style={{textAlign:"left"}}>Detalhes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+      {dados && Array.isArray(dados) && dados.length > 0 ? (
+       dados.map((linha, index) => (
+          <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+           <td  className="">{ linha.email}</td>
+        <td  className="">{ linha.placadocarro}</td>
+           <td  className="">{ linha.modelo}</td>
+        <td  className="">{ linha.categoria}</td>
+        <td  className="">{ linha.detalhes}</td>
+       <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
+  e.preventDefault(); 
+  excluir(linha.id);  
+}}>Excluir</button></td>
+
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="6" style={{ textAlign: "center" }}>
+        Nenhum dado encontrado.
+      </td>
+    </tr>
+  )}
+</tbody>
 
 
+        </table>
+          </div>
+          <div
+              style={{
+                maxWidth: "40vw",
+                maxHeight: "500px",
+                minHeight:"499px",
+                overflowY: "auto",
+                border: "",
+                marginLeft: "600px",
+                marginTop:"-500px"
+              }}
+            >
+          <table className="tabela" cellPadding="1" style={{ margin: '', maxWidth:"100px", marginTop:"", marginLeft:"100px" }}>
+          <thead>
+            <tr>
+              <th style={{textAlign:"left"}}>Pedidos</th>  
+              <th style={{textAlign:"left"}}>Marca</th>
+              <th style={{textAlign:"left"}}>Placa</th>
+              <th style={{textAlign:"left"}}>Modelo</th>
+              <th style={{textAlign:"left"}}>Categoria</th>
+              <th style={{textAlign:"left"}}>Detalhes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+      {dados && Array.isArray(dados) && dados.length > 0 ? (
+       dados.map((linha, index) => (
+          <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+           <td  className="">{ linha.email}</td>
+        <td  className="">{ linha.placadocarro}</td>
+           <td  className="">{ linha.modelo}</td>
+        <td  className="">{ linha.categoria}</td>
+        <td  className="">{ linha.detalhes}</td>
+       <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
+  e.preventDefault(); 
+  excluir(linha.id);  
+}}>Excluir</button></td>
+
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="6" style={{ textAlign: "center" }}>
+        Nenhum dado encontrado.
+      </td>
+    </tr>
+  )}
+</tbody>
 
 
-
+        </table>
+          </div>
         </Modal>
         
     </div>
