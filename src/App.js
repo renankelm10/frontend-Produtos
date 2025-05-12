@@ -15,6 +15,7 @@ export default function Cadastro() {
   const [detalhes, setDetalhes] = useState('');
   const [imagem, setImagem] = useState(null);
   const [dados, setDados] = useState([]);
+  const [pedidos, setPedidos] = useState([]);
   const [id, setIdSelecionado] = useState('');
   const [modalestaaberto1, setModalAberto1] = React.useState(false);
   const [modalestaaberto2, setModalAberto2] = React.useState(false);
@@ -46,7 +47,14 @@ export default function Cadastro() {
     })
   }
   
-
+  const buscarpedidos = async () => {
+    try {
+      const response = await axios.get('https://impotador-produtos-o8on.onrender.com/pedidos');
+      setPedidos(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  };
 
   const buscarDados = async () => {
     try {
@@ -59,6 +67,7 @@ export default function Cadastro() {
 
   useEffect(() => {
     buscarDados();
+    buscarpedidos();
   }, []);
   useEffect (() => { 
     axios .get("https://impotador-produtos-o8on.onrender.com/empresa")
@@ -311,23 +320,29 @@ export default function Cadastro() {
           <table className="tabela" cellPadding="1" style={{ margin: '', maxWidth:"", marginTop:"", marginLeft:"100px" }}>
           <thead>
             <tr>
-              <th style={{textAlign:"left"}}>Pedidos</th>  
-              <th style={{textAlign:"left"}}>Marca</th>
-              <th style={{textAlign:"left"}}>Placa</th>
-              <th style={{textAlign:"left"}}>Modelo</th>
-              <th style={{textAlign:"left"}}>Categoria</th>
-              <th style={{textAlign:"left"}}>Detalhes</th>
+              <th style={{textAlign:"left"}}>id</th>  
+              <th style={{textAlign:"left"}}>marca</th>
+              <th style={{textAlign:"left"}}>tipo</th>
+              <th style={{textAlign:"left"}}>cor</th>
+              <th style={{textAlign:"left"}}>material</th>
+              <th style={{textAlign:"left"}}>colecao</th>
+              <th style={{textAlign:"left"}}>codigo</th>
+              <th style={{textAlign:"left"}}>detalhes</th>
+
               <th></th>
             </tr>
           </thead>
           <tbody>
-      {dados && Array.isArray(dados) && dados.length > 0 ? (
-       dados.map((linha, index) => (
+      {pedidos && Array.isArray(pedidos) && pedidos.length > 0 ? (
+       pedidos.map((linha, index) => (
           <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-           <td  className="">{ linha.email}</td>
-        <td  className="">{ linha.placadocarro}</td>
-           <td  className="">{ linha.modelo}</td>
-        <td  className="">{ linha.categoria}</td>
+           <td  className="">{ linha.id}</td>
+        <td  className="">{ linha.marca}</td>
+           <td  className="">{ linha.tipo}</td>
+        <td  className="">{ linha.cor}</td>
+        <td  className="">{ linha.material}</td>
+        <td  className="">{ linha.colecao}</td>
+        <td  className="">{ linha.codigo}</td>
         <td  className="">{ linha.detalhes}</td>
        <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
   e.preventDefault(); 
