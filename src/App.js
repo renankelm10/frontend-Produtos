@@ -18,7 +18,15 @@ export default function Cadastro() {
   const [id, setIdSelecionado] = useState('');
   const [modalestaaberto1, setModalAberto1] = React.useState(false);
   const [modalestaaberto2, setModalAberto2] = React.useState(false);
+  const [modalestaaberto3, setModalAberto3] = React.useState(false);
   const [mensagem, setMensagem] = useState('');
+  const [empresa, setEmpresa] = useState([]);
+  
+  const alternarModal = () => {
+    setModalAberto3(!modalestaaberto3);
+  };
+  
+  
 
 
   
@@ -37,6 +45,7 @@ export default function Cadastro() {
       setMensagem("Email ou Senha incorretos")
     })
   }
+  
 
 
   const buscarDados = async () => {
@@ -51,7 +60,12 @@ export default function Cadastro() {
   useEffect(() => {
     buscarDados();
   }, []);
-
+  useEffect (() => { 
+    axios .get("https://impotador-produtos-o8on.onrender.com/empresa")
+    .then((response) => {
+      setEmpresa(response.data)
+    })
+  }, []);
 
   const excluir = async (id) => {
     try {
@@ -78,6 +92,8 @@ export default function Cadastro() {
     console.log(response)
     buscarDados()
    })
+
+   
   }
 
   function abrirModal() {
@@ -93,6 +109,13 @@ export default function Cadastro() {
   function fecharModal2() {
     setModalAberto2(false);  
   };
+  function abrirModal3() {
+    setModalAberto3(true);
+  }
+  function fecharModal3() {
+    setModalAberto3(false);  
+  };
+  
 
   return (
     <div className="App">
@@ -234,6 +257,44 @@ export default function Cadastro() {
             },
           }}
         >
+           <div style={{ width:"1920px", height:"100px", backgroundColor:"gray", marginTop:"80px", marginLeft:"-20px" }}>
+            <div className="flex flex-row">
+            <span
+  style={{
+    fontSize: "60px",
+    marginLeft: "20px",
+    cursor: "pointer",
+  }}
+  onClick={alternarModal}
+>
+  ☰
+</span>
+              {Array.isArray(empresa) && empresa.slice(0, 1).map((item) => (
+               <h1 style={{marginLeft:"50px", fontSize:"40px", color:"white"}} key={item.id}>{item.nome_empresa}</h1>
+))}
+            </div></div>
+           <Modal isOpen={modalestaaberto3}
+          onRequestClose={fecharModal3}
+          contentLabel="Modal de exemplo"
+          className="modal-content"
+          overlayClassName="modal-overlay3"
+          style={{
+            overlay: {
+              backgroundColor: "rgba(45, 45, 45, 0.8)",
+            },
+            content: {
+              background: "lightblue",
+              borderRadius: "1px",
+              height: "830px",
+              width: "400px",
+              position: "absolute",
+              marginLeft: "",
+              marginTop: "100px",
+            },
+          }}>
+           </Modal>
+
+           
 
 <div
               style={{
