@@ -3,9 +3,9 @@ import axios from "axios";
 import "./App.css";
 import Modal, { contextType } from "react-modal";
 import React from "react";
-import Modalprinciapal from './Modalprincipal';
-import ModalRecuperarSenha from "./Modalrecuperarsenha"
-import PaginadeLogin from "./PaginadeLogin";
+import Modalprinciapal from '../componntes/Modalprincipal';
+import ModalRecuperarSenha from "../componntes/Modalrecuperarsenha"
+import PaginadeLogin from "../componntes/PaginadeLogin";
 
 
 
