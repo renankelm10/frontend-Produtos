@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.css";
 import Modal, { contextType } from "react-modal";
 import React from "react";
+import Componente1 from "./Componente1"
 
 
 
