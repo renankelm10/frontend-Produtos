@@ -1,4 +1,6 @@
-const Componente1 = () => {
+
+const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
+
 
    return(
      <div>
@@ -153,5 +155,7 @@ const Componente1 = () => {
                 </div>
 
      </div>
-   )
-} 
+   );
+
+};
+export default Componente1;
