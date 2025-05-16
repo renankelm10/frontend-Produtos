@@ -5,7 +5,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
    return(
      <div>
       
-     <div style={{ width:"1920px", height:"100px", backgroundColor:"gray", marginTop:"80px", marginLeft:"-20px" }}>
+     <div className="shadow-2xl" style={{ width:"1920px", height:"100px", backgroundColor:"white", marginTop:"80px", marginLeft:"-20px" }}>
                   <div className="flex flex-row">
                   <span
         style={{
@@ -15,34 +15,62 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
         }}
         onClick={alternarModal}
       >
-        ☰
+        <img src="https://cdn-icons-png.flaticon.com/512/54/54206.png" alt="" style={{ width:"50px", height: "50px", margin:"40%"}} />
       </span>
+                    
                     {Array.isArray(empresa) && empresa.slice(0, 1).map((item) => (
-                     <h1 style={{marginLeft:"50px", fontSize:"40px", color:"white"}} key={item.id}>{item.nome_empresa}</h1>
-      ))}
+                     <h1 style={{marginLeft:"50px", fontSize:"40px", color:"rgb(73, 111, 216)" , marginTop:"15px" , fontFamily:"serif"}} key={item.id}>{item.nome_empresa}</h1>         
+      ))}   <spam>
+          <img src="https://static.vecteezy.com/system/resources/previews/019/879/198/non_2x/user-icon-on-transparent-background-free-png.png" alt="" style={{width:"105px", height: "65px", marginLeft:"1290%", marginTop:"15%"}}/>
+      </spam>
                   </div></div>
                  <Modal isOpen={modalestaaberto3}
                 onRequestClose={fecharModal3}
                 contentLabel="Modal de exemplo"
                 className="modal-content"
-                overlayClassName="modal-overlay3"
+                overlayClassName="overlay3"
                 style={{
                   overlay: {
                     backgroundColor: "rgba(45, 45, 45, 0.8)",
                   },
                   content: {
-                    background: "lightblue",
+                    background: "white",
                     borderRadius: "1px",
                     height: "830px",
                     width: "400px",
                     position: "absolute",
                     marginLeft: "",
                     marginTop: "100px",
+                    boxShadow: "0px 150px 120px rgba(0, 0, 0, 0.6)"
                   },
                 }}>
+                  <div className="flex flex-row">
+
+                  </div>
                  </Modal>
       
                  
+      <div style={{ marginTop:"5%", backdropFilter: "blur(8px)", marginLeft:"10%",marginRight:"10%", height:"600px", 
+                      WebkitBackdropFilter: "blur(8px)", 
+                       backgroundColor: "rgba(255, 255, 255, 0.8)", borderRadius:"20px"}}>
+                        <div style={{ 
+                          height:"10%",
+                          width:"100%",
+                          backgroundColor:"white",
+                          borderRadius:"20px",
+                          WebkitBackdropFilter: "blur(8px)", 
+                          backgroundColor: "rgba(255, 255, 255, 0.8)",
+                          backdropFilter: "blur(8px)",
+
+                        }}>
+
+                          <div className="flex flex-row">
+                            <h1 style={{ marginLeft:"20%", marginRight:"20%" , fontFamily:"sans-serif" , fontSize:"30px", marginTop:"0.5%",}}>Estoque</h1>
+                            <h1 style={{ marginLeft:"25%", marginRight:'20%' , fontFamily:"sans-serif" , fontSize:"30px", marginTop:"0.5%", }}>Pedidos</h1>
+                          </div>
+                         
+                        </div>
+
       
       <div
                     style={{
@@ -52,8 +80,9 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                       minHeight:"499px",
                       overflowY: "auto",
                       border: "",
-                      marginLeft: "1200px",
-                      marginTop:"22%"
+                      marginLeft: "50%",
+                      marginTop:"5%",
+                      
                     }}
                   >
                 <table className="tabela" cellPadding="1" style={{ margin: '', maxWidth:"", marginTop:"", marginLeft:"100px" }}>
@@ -109,7 +138,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                       minHeight:"499px",
                       overflowY: "auto",
                       border: "",
-                      marginLeft: "600px",
+                      marginLeft: "",
                       marginTop:"-500px"
                     }}
                   >
@@ -152,7 +181,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
       
       
               </table>
-                </div>
+                </div> </div>
 
      </div>
    );

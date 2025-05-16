@@ -3,9 +3,9 @@ import axios from "axios";
 import "./App.css";
 import Modal, { contextType } from "react-modal";
 import React from "react";
-import Modalprinciapal from '../componntes/Modalprincipal';
-import ModalRecuperarSenha from "../componntes/Modalrecuperarsenha"
-import PaginadeLogin from "../componntes/PaginadeLogin";
+import Modalprinciapal from './componntes/Modalprincipal';
+import ModalRecuperarSenha from "./componntes/Modalrecuperarsenha"
+import PaginadeLogin from "./componntes/PaginadeLogin";
 
 
 
@@ -32,7 +32,7 @@ export default function Cadastro() {
   };
   
   const login = () => { 
-    axios .get("https://impotador-produtos-o8on.onrender.com/login", {params: {email,senha}})
+    axios .get("https://impotador-produtos-production.up.railway.app/login", {params: {email,senha}})
 
     .then( (response) => { 
         setModalAberto1(true);
@@ -48,7 +48,7 @@ export default function Cadastro() {
   
   const buscarpedidos = async () => {
     try {
-      const response = await axios.get('https://impotador-produtos-o8on.onrender.com/pedidos');
+      const response = await axios.get('https://impotador-produtos-production.up.railway.app/pedidos');
       setPedidos(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -57,7 +57,7 @@ export default function Cadastro() {
 
   const buscarDados = async () => {
     try {
-      const response = await axios.get('https://impotador-produtos-o8on.onrender.com/dados');
+      const response = await axios.get('https://impotador-produtos-production.up.railway.app/dados');
       setDados(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -69,7 +69,7 @@ export default function Cadastro() {
     buscarpedidos();
   }, []);
   useEffect (() => { 
-    axios .get("https://impotador-produtos-o8on.onrender.com/empresa")
+    axios .get("https://impotador-produtos-production.up.railway.app/empresa")
     .then((response) => {
       setEmpresa(response.data)
     })
@@ -77,7 +77,7 @@ export default function Cadastro() {
 
   const excluir = async (id) => {
     try {
-      await axios.delete(`https://impotador-produtos-o8on.onrender.com/excluir/${id}`);
+      await axios.delete(`https://impotador-produtos-production.up.railway.app/excluir/${id}`);
       buscarDados(); 
     } catch (error) {
       console.error('Erro ao excluir dado:', error);
@@ -87,7 +87,7 @@ export default function Cadastro() {
   const handleSubmit = () => {
 
     axios 
-    .get("https://impotador-produtos-o8on.onrender.com/lista", {params: {},
+    .get("https://impotador-produtos-production.up.railway.app/lista", {params: {},
    })
    .then((response) => { 
     
@@ -145,14 +145,14 @@ export default function Cadastro() {
           onRequestClose={fecharModal2}
           contentLabel="Modal de exemplo"
           shouldCloseOnEsc={false}
-          className="modal-content"
+          className="modalRecuperarSenha"
           overlayClassName="modal-overlay2"
           style={{
             overlay: {
               backgroundColor: "rgba(45, 45, 45, 0.8)",
             },
             content: {
-              background: "white",
+              backgroundImage: "white",
               borderRadius: "15px",
               height: "780px",
               width: "860px",
@@ -181,7 +181,8 @@ export default function Cadastro() {
                     backgroundColor: "rgba(45, 45, 45, 0.8)",
                   },
                   content: {
-                    background: "white",
+                    backgroundImage: `url("https://images.unsplash.com/photo-1512273222628-4daea6e55abb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9udGFuaGFzJTIwZGUlMjBuZXZlfGVufDB8fDB8fHww")`,
+                    backgroundSize: "cover", 
                     borderRadius: "1px",
                     height: "1080px",
                     width: "1920px",
