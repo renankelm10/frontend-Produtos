@@ -137,6 +137,7 @@ export default function Cadastro() {
   email={email}
   setEmail={setEmail}
   login={login}
+  abrirModal={abrirModal}
 />
 
     

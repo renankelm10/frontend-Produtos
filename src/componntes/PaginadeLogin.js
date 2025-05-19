@@ -1,5 +1,5 @@
 
-const  PaginadeLogin = ({ mensagem, senha, setSenha, abrirModal2, handleSubmit, email, setEmail, login}) => {
+const  PaginadeLogin = ({ mensagem, senha, setSenha, abrirModal2, handleSubmit, email, setEmail, login, abrirModal}) => {
 
 
    return(
@@ -32,7 +32,8 @@ const  PaginadeLogin = ({ mensagem, senha, setSenha, abrirModal2, handleSubmit, 
             type="submit"
             onClick={(e) => {
               e.preventDefault(); 
-              login(); 
+              login()
+              abrirModal(); 
             }}
             className="w-96 py-3 border bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
