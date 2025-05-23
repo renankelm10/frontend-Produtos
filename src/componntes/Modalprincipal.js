@@ -93,7 +93,8 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                    },
                  }}>
 
-                  {estoqueaberto && <Estoque/>
+                  {estoqueaberto && <Estoque 
+                  FecharEstoque={FecharEstoque}/>
                   }
 
                  </Modal>
