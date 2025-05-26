@@ -2,19 +2,41 @@ import React, { useState } from 'react';
 import Estoque from "./Estoque";
 
 
-const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal, Abrirestoque}) => {
+const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
 
     const [estoqueaberto, setEstoqueAberto] = useState(false); 
+    const [adicionarpedido, setAdicionarPedido] = useState(false); 
+    const [Configuracoes, setConfiguracoes] = useState(false); 
 
+
+
+
+    const alternarPedido = () => {
+      setAdicionarPedido(!adicionarpedido);
+      FecharEstoque()
+      FecharConfiguracoes()
+    }; 
+    function FecharPedido(){ 
+      setAdicionarPedido(false);
+      
+    };
     const alternarEstoque = () => {
       setEstoqueAberto(!estoqueaberto);
+      FecharPedido()
+      FecharConfiguracoes()
     };
-
-    
     function FecharEstoque(){ 
       setEstoqueAberto(false);
+      
     };
-
+    const alternarConfiguracoes = () => {
+      setConfiguracoes(!Configuracoes);
+      FecharPedido()
+      FecharEstoque()
+    };
+    const FecharConfiguracoes = () => { 
+      setConfiguracoes(false)
+    }
    return(
      <div>
       
@@ -48,13 +70,13 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                   content: {
                     background: "white",
                     borderRadius: "1px",
-                    height: "830px",
+                    height: "880px",
                     width: "400px",
-                    position: "absolute",
+                    position: "fixed",
                     marginLeft: "",
                     marginTop: "100px",
                     boxShadow: "0px 150px 120px rgba(0, 0, 0, 0.6)",
-                    zIndex: 1000,
+                    zIndex: 3000,
                   },
                 }}>
                   <div className="flex flex-row">
@@ -65,10 +87,39 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                                                                                                                                                                                                           alternarEstoque();
                                                                                                                                                                                                           alternarModal();
                                                                                                                                                                                                         }}   style={{fontSize:'32px', marginLeft:"5%", cursor:'pointer'}}>Estoque</h1>
-                  <h1 className="w-80 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  style={{fontSize:'32px', marginTop:'5%' ,cursor:'pointer' ,marginLeft:"5%"}}>Adicionar Pedido</h1>
-                  <h1 className="w-60 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" style={{fontSize:'32px', marginTop:'170%', cursor:'pointer' ,marginLeft:"5%"}}>Configurações</h1>
+                  <h1 className="w-80 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarPedido(); alternarModal();} }  style={{fontSize:'32px', marginTop:'5%' ,cursor:'pointer' ,marginLeft:"5%"}}>Adicionar Pedido</h1>
+                  <h1 className="w-60 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarConfiguracoes(); alternarModal();} } style={{fontSize:'32px', marginTop:'170%', cursor:'pointer' ,marginLeft:"5%"}}>Configurações</h1>
                  </Modal>
 
+
+                 <Modal
+                 isOpen={adicionarpedido}
+                 onRequestClose={FecharPedido}
+                 contentLabel="Modal de exemplo"
+                 className="modal-content"
+                 overlayClassName="overlay3"
+                 style={{
+                   overlay: {
+                     backgroundColor: "rgba(45, 45, 45, 0.8)",
+                   },
+                   content: {
+                     background: "white",
+                     borderRadius: "20px",
+                     height: "64.5%",
+                     width: "82%",
+                     position: "absolute",
+                     marginLeft: "9.6%",
+                     marginRight:"10%",
+                     marginTop: "10.1%",
+                     boxShadow: "0px 150px 120px rgba(0, 0, 0, 0.6)"
+                   },
+                 }}>
+
+                  {estoqueaberto && <Estoque 
+                  FecharEstoque={FecharEstoque}/>
+                  }
+
+                 </Modal>
 
                  <Modal
                  isOpen={estoqueaberto}
@@ -84,10 +135,10 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                      background: "white",
                      borderRadius: "20px",
                      height: "64.5%",
-                     width: "78%",
+                     width: "82%",
                      position: "absolute",
-                     marginLeft: "11%",
-                     marginRight:"10%",
+                     marginLeft: "9.6%",
+                     marginRight:"",
                      marginTop: "10.1%",
                      boxShadow: "0px 150px 120px rgba(0, 0, 0, 0.6)"
                    },
@@ -96,6 +147,30 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                   {estoqueaberto && <Estoque 
                   FecharEstoque={FecharEstoque}/>
                   }
+
+                 </Modal>
+                 <Modal
+                 isOpen={Configuracoes}
+                 onRequestClose={FecharConfiguracoes}
+                 contentLabel="Modal de exemplo"
+                 className="modal-content"
+                 overlayClassName="overlay3"
+                 style={{
+                   overlay: {
+                     backgroundColor: "rgba(45, 45, 45, 0.8)",
+                   },
+                   content: {
+                     background: "white",
+                     borderRadius: "",
+                     height: "89.4%",
+                     width: "100%",
+                     position: "absolute",
+                     marginTop:"5.2%",
+                     zIndex: 2000,
+                     
+                   },
+                 }}>
+                  
 
                  </Modal>
       
