@@ -9,7 +9,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
     const [estoqueaberto, setEstoqueAberto] = useState(false); 
     const [adicionarpedido, setAdicionarPedido] = useState(false); 
     const [Configuracoes, setConfiguracoes] = useState(false); 
-
+    const [botaoSelecionado, setBotaoSelecionado] = useState('');
 
 
 
@@ -84,10 +84,103 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                   <div className="flex flex-row">
 
                   </div>
-                  <h1 className="w-80  py-2 px-3 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  onClick={() => {FecharEstoque();FecharPedido();alternarModal();}}   style={{fontSize:'32px', marginLeft:"5%", cursor:'pointer'}}>Menu Principal</h1>
-                  <h1 className="w-40  py-2 px-3 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  onClick={() => {alternarEstoque();alternarModal();}}   style={{fontSize:'32px',marginTop:'10%' ,marginLeft:"5%", cursor:'pointer'}}>Estoque</h1>
-                  <h1 className="w-80 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarPedido(); alternarModal();} }  style={{fontSize:'32px', marginTop:'10%' ,cursor:'pointer' ,marginLeft:"5%"}}>Adicionar Pedido</h1>
-                  <h1 className="w-60 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarConfiguracoes(); alternarModal();} } style={{fontSize:'32px', marginTop:'145%', cursor:'pointer' ,marginLeft:"5%"}}>Configurações</h1>
+                              <h1
+              className={`w-80 py-2 px-3 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'menu' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                FecharEstoque();
+                FecharPedido();
+                alternarModal();
+                FecharConfiguracoes();
+                setBotaoSelecionado('menu');
+              }}
+              style={{
+                fontSize: '32px',
+                marginLeft: "5%",
+                cursor: 'pointer',
+              }}
+            >
+              Menu Principal
+            </h1>
+
+            <h1
+              className={`w-40 py-2 px-3 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'estoque' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarEstoque();
+                alternarModal();
+                setBotaoSelecionado('estoque');
+              }}
+              style={{
+                fontSize: '32px',
+                marginLeft: "5%",
+                marginTop: '10%',
+                cursor: 'pointer',
+              }}
+            >
+              Estoque
+            </h1>
+
+            <h1
+              className={`w-80 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'pedido' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarPedido();
+                alternarModal();
+                setBotaoSelecionado('pedido');
+              }}
+              style={{
+                fontSize: '32px',
+                marginTop: '10%',
+                marginLeft: "5%",
+                cursor: 'pointer',
+              }}
+            >
+              Adicionar Pedido
+            </h1>
+
+            <h1
+              className={`w-60 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'config' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarConfiguracoes();
+                alternarModal();
+                setBotaoSelecionado('config');
+              }}
+              style={{
+                fontSize: '32px',
+                marginTop: '145%',
+                marginLeft: "5%",
+                cursor: 'pointer',
+              }}
+            >
+              Configurações
+            </h1>
+              
+            <h1
+              className={`w-60 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'config' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarConfiguracoes();
+                alternarModal();
+                setBotaoSelecionado('config');
+              }}
+              style={{
+                fontSize: '32px',
+                marginTop: '145%',
+                marginLeft: "5%",
+                cursor: 'pointer',
+              }}
+            >
+              Relatório
+            </h1>
+
+
                  </Modal>
 
 

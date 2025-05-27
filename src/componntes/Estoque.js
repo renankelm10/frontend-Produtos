@@ -1,78 +1,67 @@
 const Estoque = ({FecharEstoque}) => {
+ 
   return (
-    <div>
-      <form action="">
-        <div className="flex flex-row">
-          <h1 className="font-thin" style={{ fontSize:"40px", marginLeft:"2%"}}>Adicionar Estoque</h1>
-          
-        </div>
+    <div className="w-full h-full p-8">
+  <div className="bg-white rounded-xl shadow-2g p-2 w-full max-w-none h-full">
+    <h1 className="text-3xl font-light mb-5">Adicionar Estoque</h1>
+
+    <form className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
+      <div>
+        <label className="block font-light">Id</label>
+        <input type="text" placeholder="(opcional)" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+      </div>
+
+      <div>
+        <label className="block font-light">Marca</label>
+        <input type="text" placeholder="Marca do produto" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
+
+      <div>
+        <label className="block font-light">Tipo</label>
+        <input type="text" placeholder="Tipo de material" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
+      </div>
+
+      <div>
+        <label className="block font-light">Material</label>
+        <input type="text" placeholder="De qual material é feito" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
+
+      <div>
+        <label className="block font-light">Cor</label>
+        <input type="text" placeholder="De que cor ele é" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
+
+      <div>
+        <label className="block font-light">Coleção</label>
+        <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
       
-        <div className="flex flex-row">
-               <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"10%"}}>Id</h1> 
-                <input type="text" className="w-20 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="(opcional)" 
-                  style={{marginLeft:"10%", marginRight:"2%"}}/>
-                </div>
+      <div>
+        <label className="block font-light">Coleção</label>
+        <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
 
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"2.5%"}}>Marca</h1> 
-                <input type="text" className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="Marca do produto " 
-                  style={{marginLeft:"1%", marginRight:"2%", width:"600px", height:"60px"}}/>
-                </div>
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"2.5%"}}>Tipo</h1> 
-                <input type="text" className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="Tipo de material" 
-                  style={{marginLeft:"1%", marginRight:"2%", width:"500px", height:"60px"}}/>
-                </div>
-                
+      <div className="blok font-light">
+        <label className="block font-light">Código</label>
+        <input type="text" placeholder="Código do produto" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
 
-        </div>
+      <div className="col-span-full">
+        <label className="block font-light">Descrição</label>
+        <textarea placeholder="Descrição do produto" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
+      </div>
+
+      <div className="col-span-full">
+        <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded font-semibold hover:bg-blue-600 transition">
+          Enviar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
 
-        <div className="flex flex-row">
-                
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"10%"}}>Cor </h1> 
-                <input type="text" className="w-20 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="De que cor ele é" 
-                  style={{marginLeft:"10%", marginRight:"2%", width:"200px", height:"60px"}}/>
-                </div>
 
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"2.5%"}}>Material</h1> 
-                <input type="text" className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="De qual material ele é feito" 
-                  style={{marginLeft:"1%", marginRight:"2%", width:"500px", height:"60px"}}/>
-                </div>
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"2.5%"}}>Coleção</h1> 
-                <input type="text" className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="A qual coleção pertence" 
-                  style={{marginLeft:"1%", marginRight:"2%", width:"400px", height:"60px"}}/>
-        
-        </div>
-          </div>
-
-          <div className="flex flex-row">
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"2.5%"}}>Descrição</h1> 
-                <input type="text" className="w-96 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="Descrição do produto" 
-                  style={{marginLeft:"5%", marginRight:"2%", width:"600px", height:"200px"}}/>
-                </div>
-                <div className="flex flex-row" style={{ padding: "1.5%"}}>
-                <h1 className="font-thin" style={{fontSize:"25px", marginTop:"4%"}}>Codigo</h1> 
-                <input type="text" className="w-20 py-2 px-4 my-2 text-lg border border-gray-300 rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-102 text-black font-thin" placeholder="Codigo do produto" 
-                  style={{marginLeft:"5%", marginRight:"2%", width:"580px", height:"60px"}}/>
-                </div>
-            
-              <input type="submit" placeholder="Cadastrar" className="w-96  border bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" style={{ marginLeft: "-30%", marginTop:'11%' ,height:"60px"}}/>
-            
-                
-          </div>
-
-          
-
-          
-       </form>
-      
-    </div>
   );
 };
 
