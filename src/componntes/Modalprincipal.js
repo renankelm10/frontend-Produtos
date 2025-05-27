@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Estoque from "./Estoque";
+import Configuracoesjs from './configuracoes';
+import AdicionarPedido from './AdicionarProduto';
 
 
 const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
@@ -82,19 +84,16 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                   <div className="flex flex-row">
 
                   </div>
-
-                  <h1 className="w-40  py-2 px-3 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  onClick={() => {
-                                                                                                                                                                                                          alternarEstoque();
-                                                                                                                                                                                                          alternarModal();
-                                                                                                                                                                                                        }}   style={{fontSize:'32px', marginLeft:"5%", cursor:'pointer'}}>Estoque</h1>
-                  <h1 className="w-80 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarPedido(); alternarModal();} }  style={{fontSize:'32px', marginTop:'5%' ,cursor:'pointer' ,marginLeft:"5%"}}>Adicionar Pedido</h1>
-                  <h1 className="w-60 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarConfiguracoes(); alternarModal();} } style={{fontSize:'32px', marginTop:'170%', cursor:'pointer' ,marginLeft:"5%"}}>Configurações</h1>
+                  <h1 className="w-80  py-2 px-3 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  onClick={() => {FecharEstoque();FecharPedido();alternarModal();}}   style={{fontSize:'32px', marginLeft:"5%", cursor:'pointer'}}>Menu Principal</h1>
+                  <h1 className="w-40  py-2 px-3 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500"  onClick={() => {alternarEstoque();alternarModal();}}   style={{fontSize:'32px',marginTop:'10%' ,marginLeft:"5%", cursor:'pointer'}}>Estoque</h1>
+                  <h1 className="w-80 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarPedido(); alternarModal();} }  style={{fontSize:'32px', marginTop:'10%' ,cursor:'pointer' ,marginLeft:"5%"}}>Adicionar Pedido</h1>
+                  <h1 className="w-60 py-2 px-4 my-2 text-lg rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-black font-thin hover:text-blue-500" onClick={() => {alternarConfiguracoes(); alternarModal();} } style={{fontSize:'32px', marginTop:'145%', cursor:'pointer' ,marginLeft:"5%"}}>Configurações</h1>
                  </Modal>
 
 
                  <Modal
-                 isOpen={adicionarpedido}
-                 onRequestClose={FecharPedido}
+                 isOpen={estoqueaberto}
+                 onRequestClose={FecharEstoque}
                  contentLabel="Modal de exemplo"
                  className="modal-content"
                  overlayClassName="overlay3"
@@ -115,15 +114,13 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                    },
                  }}>
 
-                  {estoqueaberto && <Estoque 
-                  FecharEstoque={FecharEstoque}/>
-                  }
+                  {estoqueaberto && <Estoque FecharEstoque={FecharEstoque} />}
 
                  </Modal>
 
                  <Modal
-                 isOpen={estoqueaberto}
-                 onRequestClose={FecharEstoque}
+                 isOpen={adicionarpedido}
+                 onRequestClose={FecharPedido}
                  contentLabel="Modal de exemplo"
                  className="modal-content"
                  overlayClassName="overlay3"
@@ -144,9 +141,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                    },
                  }}>
 
-                  {estoqueaberto && <Estoque 
-                  FecharEstoque={FecharEstoque}/>
-                  }
+                  <AdicionarPedido/>
 
                  </Modal>
                  <Modal
@@ -168,8 +163,9 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                      marginTop:"5.2%",
                      zIndex: 2000,
                      
-                   },
-                 }}>
+                   }}}>
+                   <Configuracoesjs 
+                   FecharEstoque={FecharEstoque}/>
                   
 
                  </Modal>
