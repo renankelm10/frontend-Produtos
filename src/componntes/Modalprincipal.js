@@ -4,14 +4,18 @@ import Configuracoesjs from './configuracoes';
 import AdicionarPedido from './AdicionarProduto';
 
 
-const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
+    const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
 
     const [estoqueaberto, setEstoqueAberto] = useState(false); 
     const [adicionarpedido, setAdicionarPedido] = useState(false); 
     const [Configuracoes, setConfiguracoes] = useState(false); 
     const [botaoSelecionado, setBotaoSelecionado] = useState('');
+    const [dadosEmpresa, setDadosEmpresa] = useState({});
 
-
+    const receberEmpresa = (formulario) => {
+      setDadosEmpresa(formulario);
+      console.log("Dados recebidos do filho:", formulario);
+    };
 
     const alternarPedido = () => {
       setAdicionarPedido(!adicionarpedido);
@@ -53,10 +57,8 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
       >
         <img src="https://cdn-icons-png.flaticon.com/512/54/54206.png" alt=""  style={{ width:"50px", height: "50px", margin:"40%"} } />
       </span>
-                    
-                    {Array.isArray(empresa) && empresa.slice(0, 1).map((item) => (
-                     <h1 style={{marginLeft:"50px", fontSize:"40px", color:"rgb(73, 111, 216)" , marginTop:"15px" , fontFamily:"serif"}} key={item.id}>{item.nome_empresa}</h1>         
-      ))}   <spam onClick={alternarModal}  style={{ marginLeft:"-3%" , cursor: "pointer"}}>
+                    <h1 className='text-3xl font-bold mb-5 ' style={{ marginLeft:"5%", marginTop:"1.3%"}}>{dadosEmpresa.empresa} </h1>
+                     <spam onClick={alternarModal}  style={{ marginLeft:"-3%" , cursor: "pointer"}}>
           <img  src="https://static.vecteezy.com/system/resources/previews/019/879/198/non_2x/user-icon-on-transparent-background-free-png.png" alt="" style={{width:"105px", height: "65px", marginLeft:"1290%", marginTop:"15%", cursor: "pointer"}}/>
       </spam>
                   </div></div>
@@ -122,6 +124,25 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
             >
               Estoque
             </h1>
+            <h1
+              className={`w-40 py-2 px-3 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'estoque' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarEstoque();
+                alternarModal();
+                setBotaoSelecionado('estoque');
+              }}
+              style={{
+                fontSize: '32px',
+                marginLeft: "5%",
+                marginTop: '10%',
+                cursor: 'pointer',
+              }}
+            >
+              Relatorio
+            </h1>
+            
 
             <h1
               className={`w-80 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
@@ -141,6 +162,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
             >
               Adicionar Pedido
             </h1>
+            
 
             <h1
               className={`w-60 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
@@ -153,7 +175,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
               }}
               style={{
                 fontSize: '32px',
-                marginTop: '145%',
+                marginTop: '120%',
                 marginLeft: "5%",
                 cursor: 'pointer',
               }}
@@ -161,24 +183,6 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
               Configurações
             </h1>
               
-            <h1
-              className={`w-60 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
-                ${botaoSelecionado === 'config' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
-              `}
-              onClick={() => {
-                alternarConfiguracoes();
-                alternarModal();
-                setBotaoSelecionado('config');
-              }}
-              style={{
-                fontSize: '32px',
-                marginTop: '145%',
-                marginLeft: "5%",
-                cursor: 'pointer',
-              }}
-            >
-              Relatório
-            </h1>
 
 
                  </Modal>
@@ -257,8 +261,7 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
                      zIndex: 2000,
                      
                    }}}>
-                   <Configuracoesjs 
-                   FecharEstoque={FecharEstoque}/>
+                  <Configuracoesjs atualizarEmpresa={receberEmpresa} />
                   
 
                  </Modal>
@@ -317,9 +320,10 @@ const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, p
             {pedidos && Array.isArray(pedidos) && pedidos.length > 0 ? (
              pedidos.map((linha, index) => (
                 <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-                 <td  className="">{ linha.id}</td>
+                 
+              <td  className="">{ linha.id}</td>
               <td  className="">{ linha.marca}</td>
-                 <td  className="">{ linha.tipo}</td>
+              <td  className="">{ linha.tipo}</td>
               <td  className="">{ linha.cor}</td>
               <td  className="">{ linha.material}</td>
               <td  className="">{ linha.colecao}</td>
