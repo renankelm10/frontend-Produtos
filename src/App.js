@@ -32,7 +32,7 @@ export default function Cadastro() {
   };
   
   const login = () => { 
-    axios .get("https://impotador-produtos-production.up.railway.app/login", {params: {email,senha}})
+    axios .get("https://localhost:5001/login", {params: {email,senha}})
 
     .then( (response) => { 
         setModalAberto1(true);
@@ -48,7 +48,7 @@ export default function Cadastro() {
   
   const buscarpedidos = async () => {
     try {
-      const response = await axios.get('https://impotador-produtos-production.up.railway.app/pedidos');
+      const response = await axios.get('https://localhost:5001/pedidos');
       setPedidos(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -57,7 +57,8 @@ export default function Cadastro() {
 
   const buscarDados = async () => {
     try {
-      const response = await axios.get('https://impotador-produtos-production.up.railway.app/dados');
+      const response = await axios.get('https://localhost:5001/dados');
+      console.log(response.data)
       setDados(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -69,7 +70,7 @@ export default function Cadastro() {
     buscarpedidos();
   }, []);
   useEffect (() => { 
-    axios .get("https://impotador-produtos-production.up.railway.app/empresa")
+    axios .get("https://localhost:5001/empresa")
     .then((response) => {
       setEmpresa(response.data)
     })
@@ -77,7 +78,7 @@ export default function Cadastro() {
 
   const excluir = async (id) => {
     try {
-      await axios.delete(`https://impotador-produtos-production.up.railway.app/excluir/${id}`);
+      await axios.delete(`https://localhost:5001/excluir/${id}`);
       buscarDados(); 
     } catch (error) {
       console.error('Erro ao excluir dado:', error);
@@ -87,7 +88,7 @@ export default function Cadastro() {
   const handleSubmit = () => {
 
     axios 
-    .get("https://impotador-produtos-production.up.railway.app/lista", {params: {},
+    .get("https://localhost:5001/lista", {params: {},
    })
    .then((response) => { 
     

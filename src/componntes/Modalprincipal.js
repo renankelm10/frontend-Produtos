@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Estoque from "./Estoque";
 import Configuracoesjs from './configuracoes';
 import AdicionarPedido from './AdicionarProduto';
+import Relatoriojs from './Relatorio';
 
 
     const Componente1 = ({ empresa, alternarModal, modalestaaberto3, fecharModal3, pedidos, excluir, dados, Modal }) => {
@@ -9,7 +10,9 @@ import AdicionarPedido from './AdicionarProduto';
     const [estoqueaberto, setEstoqueAberto] = useState(false); 
     const [adicionarpedido, setAdicionarPedido] = useState(false); 
     const [Configuracoes, setConfiguracoes] = useState(false); 
+    const [Relatorio, setrelatorio] = useState(false); 
     const [botaoSelecionado, setBotaoSelecionado] = useState('');
+    const [Darkmode, setDarkmode] = useState('white'); 
     const [dadosEmpresa, setDadosEmpresa] = useState({});
 
     const receberEmpresa = (formulario) => {
@@ -17,10 +20,23 @@ import AdicionarPedido from './AdicionarProduto';
       console.log("Dados recebidos do filho:", formulario);
     };
 
+
+    const alternarRelatorio = () => {
+      setrelatorio(!Relatorio);
+      FecharEstoque()
+      FecharConfiguracoes()
+      FecharPedido();
+    }; 
+    function FecharRelatorio(){ 
+      setrelatorio(false);
+      
+    };
+
     const alternarPedido = () => {
       setAdicionarPedido(!adicionarpedido);
       FecharEstoque()
       FecharConfiguracoes()
+      FecharRelatorio()
     }; 
     function FecharPedido(){ 
       setAdicionarPedido(false);
@@ -30,6 +46,7 @@ import AdicionarPedido from './AdicionarProduto';
       setEstoqueAberto(!estoqueaberto);
       FecharPedido()
       FecharConfiguracoes()
+      FecharRelatorio()
     };
     function FecharEstoque(){ 
       setEstoqueAberto(false);
@@ -39,6 +56,7 @@ import AdicionarPedido from './AdicionarProduto';
       setConfiguracoes(!Configuracoes);
       FecharPedido()
       FecharEstoque()
+      FecharRelatorio()
     };
     const FecharConfiguracoes = () => { 
       setConfiguracoes(false)
@@ -46,7 +64,7 @@ import AdicionarPedido from './AdicionarProduto';
    return(
      <div>
       
-     <div  className="shadow-2xl" style={{ width:"1920px", height:"100px", backgroundColor:"white", marginTop:"80px", marginLeft:"-20px" }}>
+     <div  className={`${Darkmode === 'dark' ? ' bg-gray-800' : 'bg-white'}`} style={{ width:"1920px", height:"100px", marginTop:"80px", marginLeft:"-20px" }}>
                   <div className="flex flex-row">
                   <span onClick={alternarModal} 
         style={{
@@ -95,6 +113,7 @@ import AdicionarPedido from './AdicionarProduto';
                 FecharPedido();
                 alternarModal();
                 FecharConfiguracoes();
+                FecharRelatorio();
                 setBotaoSelecionado('menu');
               }}
               style={{
@@ -125,26 +144,6 @@ import AdicionarPedido from './AdicionarProduto';
               Estoque
             </h1>
             <h1
-              className={`w-40 py-2 px-3 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
-                ${botaoSelecionado === 'estoque' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
-              `}
-              onClick={() => {
-                alternarEstoque();
-                alternarModal();
-                setBotaoSelecionado('estoque');
-              }}
-              style={{
-                fontSize: '32px',
-                marginLeft: "5%",
-                marginTop: '10%',
-                cursor: 'pointer',
-              }}
-            >
-              Relatorio
-            </h1>
-            
-
-            <h1
               className={`w-80 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
                 ${botaoSelecionado === 'pedido' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
               `}
@@ -162,8 +161,26 @@ import AdicionarPedido from './AdicionarProduto';
             >
               Adicionar Pedido
             </h1>
-            
 
+            <h1
+              className={`w-40 py-2 px-3 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
+                ${botaoSelecionado === 'relatorio' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
+              `}
+              onClick={() => {
+                alternarRelatorio();
+                alternarModal();
+                setBotaoSelecionado('relatorio');
+              }}
+              style={{
+                fontSize: '32px',
+                marginLeft: "5%",
+                marginTop: '10%',
+                cursor: 'pointer',
+              }}
+            >
+              Relatorio
+            </h1>
+            
             <h1
               className={`w-60 py-2 px-4 my-2 rounded-md transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 font-thin cursor-pointer
                 ${botaoSelecionado === 'config' ? 'text-blue-500 font-bold text-4xl' : 'text-black text-lg'}
@@ -241,6 +258,33 @@ import AdicionarPedido from './AdicionarProduto';
                   <AdicionarPedido/>
 
                  </Modal>
+
+                 <Modal
+                 isOpen={Relatorio}
+                 onRequestClose={FecharConfiguracoes}
+                 contentLabel="Modal de exemplo"
+                 className="modal-content"
+                 overlayClassName="overlay3"
+                 style={{
+                   overlay: {
+                     backgroundColor: "rgba(45, 45, 45, 0.8)",
+                   },
+                   content: {
+                     background: "white",
+                     borderRadius: "",
+                     height: "89.4%",
+                     width: "100%",
+                     position: "absolute",
+                     marginTop:"5.2%",
+                     zIndex: 2000,
+                     
+                   }}}>
+                  <Relatoriojs/>
+                  
+
+                 </Modal>
+              
+
                  <Modal
                  isOpen={Configuracoes}
                  onRequestClose={FecharConfiguracoes}
