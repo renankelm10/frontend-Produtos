@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Estoque from "./Estoque";
 import Configuracoesjs from './configuracoes';
-import AdicionarPedido from './AdicionarProduto';
+import AdicionarProduto from './AdicionarProduto';
 import Relatoriojs from './Relatorio';
 
 
@@ -56,7 +56,7 @@ import Relatoriojs from './Relatorio';
       setConfiguracoes(!Configuracoes);
       FecharPedido()
       FecharEstoque()
-      FecharRelatorio()
+      
     };
     const FecharConfiguracoes = () => { 
       setConfiguracoes(false)
@@ -255,7 +255,7 @@ import Relatoriojs from './Relatorio';
                    },
                  }}>
 
-                  <AdicionarPedido/>
+                  <AdicionarProduto/>
 
                  </Modal>
 

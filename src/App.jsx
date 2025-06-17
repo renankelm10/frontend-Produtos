@@ -21,12 +21,15 @@ export default function Cadastro() {
   const [dados, setDados] = useState([]);
   const [pedidos, setPedidos] = useState([]);
   const [id, setIdSelecionado] = useState('');
+  const [Dadosgerais, SetDadosgerais] = useState('');
   const [modalestaaberto1, setModalAberto1] = React.useState(false);
   const [modalestaaberto2, setModalAberto2] = React.useState(false);
   const [modalestaaberto3, setModalAberto3] = React.useState(false);
   const [mensagem, setMensagem] = useState('');
   const [empresa, setEmpresa] = useState([]);
   
+  
+
   const alternarModal = () => {
     setModalAberto3(!modalestaaberto3);
   };
