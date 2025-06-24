@@ -15,6 +15,7 @@ import Relatoriojs from './Relatorio';
     const [Darkmode, setDarkmode] = useState('white'); 
     const [dadosEmpresa, setDadosEmpresa] = useState({});
 
+    console.log("dados = ",dados ,"pedidos", pedidos)
     const receberEmpresa = (formulario) => {
       setDadosEmpresa(formulario);
       console.log("Dados recebidos do filho:", formulario);
@@ -361,33 +362,36 @@ import Relatoriojs from './Relatorio';
                   </tr>
                 </thead>
                 <tbody>
-            {pedidos && Array.isArray(pedidos) && pedidos.length > 0 ? (
-             pedidos.map((linha, index) => (
-                <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-                 
-              <td  className="">{ linha.id}</td>
-              <td  className="">{ linha.marca}</td>
-              <td  className="">{ linha.tipo}</td>
-              <td  className="">{ linha.cor}</td>
-              <td  className="">{ linha.material}</td>
-              <td  className="">{ linha.colecao}</td>
-              <td  className="">{ linha.codigo}</td>
-              <td  className="">{ linha.detalhes}</td>
-             <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
-        e.preventDefault(); 
-        excluir(linha.id);  
-      }}>Excluir</button></td>
-      
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan="6" style={{ textAlign: "center" }}>
-              Nenhum dado encontrado.
-            </td>
-          </tr>
-        )}
-      </tbody>
+                {pedidos && Array.isArray(pedidos) && pedidos.length > 1 ? (
+                  pedidos.slice(1).map((linha, index) => (
+                    <tr key={index}>
+                      <td>{linha[0]}</td> 
+                      <td>{linha[1]}</td> 
+                      <td>{linha[2]}</td> 
+                      <td>{linha[3]}</td> 
+                      <td>{linha[4]}</td> 
+                      <td>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            excluir(linha[0]);
+                          }}
+                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded"
+                        >
+                          Excluir
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="6" style={{ textAlign: "center" }}>
+                      Nenhum dado encontrado.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+
       
       
               </table>
@@ -416,29 +420,36 @@ import Relatoriojs from './Relatorio';
                   </tr>
                 </thead>
                 <tbody>
-            {dados && Array.isArray(dados) && dados.length > 0 ? (
-             dados.map((linha, index) => (
-                <tr key={index} className=" py-2 rounded-x1 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
-                 <td  className="">{ linha.email}</td>
-              <td  className="">{ linha.placadocarro}</td>
-                 <td  className="">{ linha.modelo}</td>
-              <td  className="">{ linha.categoria}</td>
-              <td  className="">{ linha.detalhes}</td>
-             <td> <button style={{marginTop: "-10px"}}  className="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4 rounded mt-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={(e) => {
-        e.preventDefault(); 
-        excluir(linha.id);  
-      }}>Excluir</button></td>
-      
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan="6" style={{ textAlign: "center" }}>
-              Nenhum dado encontrado.
-            </td>
-          </tr>
-        )}
-      </tbody>
+                {dados && Array.isArray(dados) && dados.length > 1 ? (
+                  dados.slice(1).map((linha, index) => (
+                    <tr key={index}>
+                      <td>{linha[0]}</td> 
+                      <td>{linha[1]}</td> 
+                      <td>{linha[2]}</td> 
+                      <td>{linha[3]}</td> 
+                      <td>{linha[4]}</td> 
+                      <td>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            excluir(linha[0]);
+                          }}
+                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded"
+                        >
+                          Excluir
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="6" style={{ textAlign: "center" }}>
+                      Nenhum dado encontrado.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+
       
       
               </table>

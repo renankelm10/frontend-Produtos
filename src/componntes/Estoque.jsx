@@ -35,12 +35,6 @@ const Estoque = ({FecharEstoque}) => {
         <label className="block font-light">Coleção</label>
         <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
       </div>
-      
-      <div>
-        <label className="block font-light">Coleção</label>
-        <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
-      </div>
-
       <div className="blok font-light">
         <label className="block font-light">Código</label>
         <input type="text" placeholder="Código do produto" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>

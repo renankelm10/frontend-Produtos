@@ -4,13 +4,13 @@ const AdicionarPedido = ({FecharEstoque}) => {
   return (
     <div className="w-full h-full p-8">
   <div className="bg-white rounded-xl shadow-2g p-2 w-full max-w-none h-full">
-    <h1 className="text-3xl font-light mb-5">Adicionar Estoque</h1>
+    <h1 className="text-3xl font-light mb-5">Adicionar Produto</h1>
 
     <form className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
       <div>
         <label className="block font-light">Id</label>
         <input type="text" placeholder="(opcional)" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" />
-      </div>
+      </div> 
 
       <div>
         <label className="block font-light">Marca</label>
@@ -32,11 +32,6 @@ const AdicionarPedido = ({FecharEstoque}) => {
         <input type="text" placeholder="De que cor ele é" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
       </div>
 
-      <div>
-        <label className="block font-light">Coleção</label>
-        <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
-      </div>
-      
       <div>
         <label className="block font-light">Coleção</label>
         <input type="text" placeholder="A qual coleção pertence" className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
